@@ -38,7 +38,7 @@ public class ViewAjedrez extends JFrame{
 		for (int i = 1; i <= tamanoTablero; i++) {
 	        ArrayList<JLabel> filasLabel = new ArrayList<JLabel>();
 			for (int j = 1; j <= tamanoTablero; j++) {
-				JLabel boton = new JLabel(i+", "+j);
+				JLabel boton = new JLabel();
 				boton.setPreferredSize(new Dimension(50, 50));
 				boton.setOpaque(true);
 				
@@ -59,12 +59,19 @@ public class ViewAjedrez extends JFrame{
 		pack();
 	}
 
-	public void dibujarCaballo(Posicion posicion) {
+	public void dibujarCaballo(Posicion posicion, int numero) {
 
 		
 		JLabel label = tableroLabel.get(posicion.getFila()-1).get(posicion.getColumna()-1);
 		
-		label.setText(posicion.getFila()+", "+ posicion.getColumna()+" ♞");
+		label.setText("♞" + numero);
+		
+	}
+
+	public void borrarCaballo(Posicion posicion) {
+		JLabel label = tableroLabel.get(posicion.getFila()-1).get(posicion.getColumna()-1);
+		
+		label.setText("");
 		
 	}
 	
