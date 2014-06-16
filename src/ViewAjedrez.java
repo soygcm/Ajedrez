@@ -13,6 +13,7 @@ public class ViewAjedrez extends JFrame{
 	private ArrayList<ArrayList<JLabel>> tableroLabel;
 	private JPanel pantalla;
 	private Color color = new Color(237, 233, 104, 255);
+	private int tamanoTablero;
 
 	public void arranca() {
 		pack();
@@ -33,6 +34,8 @@ public class ViewAjedrez extends JFrame{
 
 	public void dibujarTablero(int tamanoTablero) {
 		
+		this.tamanoTablero = tamanoTablero;
+		
 		pantalla.setLayout(new GridLayout(tamanoTablero, tamanoTablero));
 
 		for (int i = 1; i <= tamanoTablero; i++) {
@@ -41,7 +44,7 @@ public class ViewAjedrez extends JFrame{
 				JLabel boton = new JLabel();
 				boton.setPreferredSize(new Dimension(50, 50));
 				boton.setOpaque(true);
-				
+				boton.setForeground(Color.RED);
 				if (j%2==0) {
 	    				if (i%2 ==0) {
 	        				boton.setBackground(color);
@@ -63,6 +66,12 @@ public class ViewAjedrez extends JFrame{
 
 		
 		JLabel label = tableroLabel.get(posicion.getFila()-1).get(posicion.getColumna()-1);
+		
+		float rgb = numero/( (float) (tamanoTablero*tamanoTablero));
+		
+		System.out.println(rgb+"");
+		
+		label.setBackground(new Color(rgb, rgb, rgb));
 		
 		label.setText("♞" + numero);
 		

@@ -8,7 +8,7 @@ public class ControllerAjedrez {
 
 	
 	
-	private static final int TAMANO_TABLERO = 8;
+	private static final int TAMANO_TABLERO = 5;
 	private ViewAjedrez vista;
 	private ArrayList<Posicion> posicionesVisitadas;
 
